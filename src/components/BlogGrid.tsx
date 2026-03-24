@@ -10,9 +10,9 @@ interface BlogGridProps {
 
 const BlogGrid = ({ posts = blogPosts, title = "Latest Articles", showViewAll = true }: BlogGridProps) => {
   return (
-    <section className="py-20 px-6 lg:px-8 border-t border-border">
+    <section className="py-14 md:py-20 px-4 sm:px-6 lg:px-8 border-t border-border">
       <div className="container mx-auto">
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-8 md:mb-12">
           <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground">
             {title}
           </h2>

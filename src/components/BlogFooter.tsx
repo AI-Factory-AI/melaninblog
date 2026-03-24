@@ -6,7 +6,7 @@ const BlogFooter = () => {
           <div>
             <h4 className="font-display text-sm font-semibold text-foreground mb-4">Content</h4>
             <ul className="space-y-2">
-              {["Articles", "Research", "Podcast", "Videos"].map((item) => (
+              {["Articles", "Research", "Podcast", "Resources"].map((item) => (
                 <li key={item}>
                   <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{item}</a>
                 </li>
@@ -45,9 +45,11 @@ const BlogFooter = () => {
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border">
-          <p className="font-display text-lg font-semibold text-foreground">
-            Melanin<span className="text-muted-foreground"> Connect</span>
-          </p>
+          <img
+            src="/melanin_cbyyuk.png"
+            alt="Melanin Connect"
+            className="h-10 lg:h-16 w-auto"
+          />
           <p className="text-xs text-muted-foreground mt-2 md:mt-0">
             © 2026 Melanin Connect. All rights reserved.
           </p>
