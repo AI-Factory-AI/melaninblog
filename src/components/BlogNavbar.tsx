@@ -1,27 +1,40 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Search } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+
+const navItems = [
+  { label: "Articles", path: "/articles" },
+  { label: "Research", path: "/research" },
+  { label: "Podcast", path: "/podcast" },
+  { label: "Newsletter", path: "/newsletter" },
+];
 
 const BlogNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="/" className="font-display text-xl font-semibold tracking-tight text-foreground">
-            Synth<span className="text-muted-foreground">AI</span>
-          </a>
+          <Link to="/" className="font-display text-xl font-semibold tracking-tight text-foreground">
+            Melanin<span className="text-muted-foreground"> Connect</span>
+          </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            {["Articles", "Research", "Podcast", "Newsletter"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.path}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  location.pathname === item.path
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </div>
 
@@ -29,9 +42,12 @@ const BlogNavbar = () => {
             <button className="p-2 text-muted-foreground hover:text-foreground transition-colors">
               <Search className="w-4 h-4" />
             </button>
-            <button className="text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-full hover:opacity-90 transition-opacity">
+            <Link
+              to="/newsletter"
+              className="text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-full hover:opacity-90 transition-opacity"
+            >
               Subscribe
-            </button>
+            </Link>
           </div>
 
           <button
@@ -50,14 +66,23 @@ const BlogNavbar = () => {
           className="md:hidden border-t border-border bg-background"
         >
           <div className="px-6 py-4 space-y-3">
-            {["Articles", "Research", "Podcast", "Newsletter"].map((item) => (
-              <a key={item} href="#" className="block text-sm font-medium text-muted-foreground hover:text-foreground">
-                {item}
-              </a>
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.path}
+                onClick={() => setIsOpen(false)}
+                className="block text-sm font-medium text-muted-foreground hover:text-foreground"
+              >
+                {item.label}
+              </Link>
             ))}
-            <button className="w-full text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-full mt-2">
+            <Link
+              to="/newsletter"
+              onClick={() => setIsOpen(false)}
+              className="block w-full text-center text-sm font-medium bg-primary text-primary-foreground px-4 py-2 rounded-full mt-2"
+            >
               Subscribe
-            </button>
+            </Link>
           </div>
         </motion.div>
       )}

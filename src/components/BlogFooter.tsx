@@ -16,7 +16,7 @@ const BlogFooter = () => {
           <div>
             <h4 className="font-display text-sm font-semibold text-foreground mb-4">Topics</h4>
             <ul className="space-y-2">
-              {["Machine Learning", "NLP", "Computer Vision", "Robotics"].map((item) => (
+              {["Machine Learning", "Entrepreneurship", "AI Ethics", "Career"].map((item) => (
                 <li key={item}>
                   <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{item}</a>
                 </li>
@@ -36,7 +36,7 @@ const BlogFooter = () => {
           <div>
             <h4 className="font-display text-sm font-semibold text-foreground mb-4">Social</h4>
             <ul className="space-y-2">
-              {["Twitter", "LinkedIn", "GitHub", "RSS"].map((item) => (
+              {["Twitter", "LinkedIn", "Instagram", "RSS"].map((item) => (
                 <li key={item}>
                   <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">{item}</a>
                 </li>
@@ -46,10 +46,10 @@ const BlogFooter = () => {
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border">
           <p className="font-display text-lg font-semibold text-foreground">
-            Synth<span className="text-muted-foreground">AI</span>
+            Melanin<span className="text-muted-foreground"> Connect</span>
           </p>
           <p className="text-xs text-muted-foreground mt-2 md:mt-0">
-            © 2026 SynthAI. All rights reserved.
+            © 2026 Melanin Connect. All rights reserved.
           </p>
         </div>
       </div>
