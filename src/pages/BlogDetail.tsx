@@ -1,9 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Calendar } from "lucide-react";
-import BlogNavbar from "@/components/BlogNavbar";
-import BlogFooter from "@/components/BlogFooter";
-import BlogGrid from "@/components/BlogGrid";
+import { PageLayout } from "@/layout";
+import BlogGrid from "@/components/blog/BlogGrid";
+import ArticleEngagement from "@/components/blog/ArticleEngagement";
 import { getPostBySlug, blogPosts } from "@/data/blogData";
 
 const BlogDetail = () => {
@@ -12,15 +12,14 @@ const BlogDetail = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-background">
-        <BlogNavbar />
-        <div className="pt-32 px-6 text-center">
+      <PageLayout>
+        <div className="pt-32 px-6 text-center pb-24">
           <h1 className="font-display text-3xl font-semibold text-foreground mb-4">Article not found</h1>
           <Link to="/articles" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
             ← Back to articles
           </Link>
         </div>
-      </div>
+      </PageLayout>
     );
   }
 
@@ -44,8 +43,7 @@ const BlogDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <BlogNavbar />
+    <PageLayout>
       <article className="pt-28 pb-16 px-6 lg:px-8">
         <div className="container mx-auto max-w-3xl">
           <motion.div
@@ -68,7 +66,7 @@ const BlogDetail = () => {
               {post.title}
             </h1>
 
-            <div className="flex items-center gap-6 mb-8 pb-8 border-b border-border">
+            <div className="flex flex-wrap items-center gap-6 mb-8 pb-8 border-b border-border">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-sm font-medium text-foreground">
                   {post.authorInitials}
@@ -111,12 +109,13 @@ const BlogDetail = () => {
           >
             {renderContent(post.content)}
           </motion.div>
+
+          <ArticleEngagement slug={post.slug} />
         </div>
       </article>
 
       <BlogGrid posts={relatedPosts} title="Related Articles" showViewAll={true} />
-      <BlogFooter />
-    </div>
+    </PageLayout>
   );
 };
 

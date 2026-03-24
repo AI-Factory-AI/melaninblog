@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Download, FileText, Video, FileArchive } from "lucide-react";
-import BlogNavbar from "@/components/BlogNavbar";
-import BlogFooter from "@/components/BlogFooter";
+import { PageLayout } from "@/layout";
 
 const resources = [
   {
@@ -35,8 +34,7 @@ const resources = [
 
 const Resources = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <BlogNavbar />
+    <PageLayout>
 
       <section className="pt-24 md:pt-32 pb-10 md:pb-14 px-4 sm:px-6 lg:px-8 border-b border-border">
         <div className="container mx-auto">
@@ -95,8 +93,7 @@ const Resources = () => {
         </div>
       </section>
 
-      <BlogFooter />
-    </div>
+    </PageLayout>
   );
 };
 

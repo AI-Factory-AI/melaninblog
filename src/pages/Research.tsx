@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import BlogNavbar from "@/components/BlogNavbar";
-import BlogFooter from "@/components/BlogFooter";
-import BlogGrid from "@/components/BlogGrid";
+import { PageLayout } from "@/layout";
+import BlogGrid from "@/components/blog/BlogGrid";
 import { researchPosts } from "@/data/blogData";
 import researchHero from "@/assets/research-hero.jpg";
 
@@ -22,8 +21,7 @@ const focusAreas = [
 
 const Research = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <BlogNavbar />
+    <PageLayout>
       <section
         className="relative min-h-[340px] md:min-h-[400px] lg:min-h-[460px] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${researchHero})` }}
@@ -94,8 +92,7 @@ const Research = () => {
         </div>
       </section>
       <BlogGrid posts={researchPosts} title="Research Papers & Analysis" showViewAll={false} />
-      <BlogFooter />
-    </div>
+    </PageLayout>
   );
 };
 

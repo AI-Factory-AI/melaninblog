@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
-import BlogNavbar from "@/components/BlogNavbar";
-import BlogFooter from "@/components/BlogFooter";
+import { PageLayout } from "@/layout";
 
 const benefits = [
   "Weekly deep dives on AI, tech & culture",
@@ -12,8 +11,7 @@ const benefits = [
 
 const Newsletter = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <BlogNavbar />
+    <PageLayout>
       <section className="pt-32 pb-20 px-6 lg:px-8">
         <div className="container mx-auto max-w-2xl text-center">
           <motion.div
@@ -111,8 +109,7 @@ const Newsletter = () => {
           </div>
         </div>
       </section>
-      <BlogFooter />
-    </div>
+    </PageLayout>
   );
 };
 

@@ -99,3 +99,19 @@ export const researchPosts = blogPosts.filter(p =>
 
 export const getPostBySlug = (slug: string) =>
   blogPosts.find(p => p.slug === slug);
+
+export const getPostsByCategory = (category: string) =>
+  blogPosts.filter(p => p.category === category);
+
+/** Case-insensitive match on title, excerpt, category, and author. */
+export const searchBlogPosts = (query: string): BlogPost[] => {
+  const q = query.trim().toLowerCase();
+  if (!q) return [];
+  return blogPosts.filter(
+    p =>
+      p.title.toLowerCase().includes(q) ||
+      p.excerpt.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      p.author.toLowerCase().includes(q),
+  );
+};

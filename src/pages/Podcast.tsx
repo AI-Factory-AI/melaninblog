@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Play, Clock, Headphones, AudioLines } from "lucide-react";
-import BlogNavbar from "@/components/BlogNavbar";
-import BlogFooter from "@/components/BlogFooter";
+import { PageLayout } from "@/layout";
 import podcastHero from "@/assets/podcast-hero.jpg";
 
 const episodes = [
@@ -59,8 +58,7 @@ const episodes = [
 
 const Podcast = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <BlogNavbar />
+    <PageLayout>
       <section className="pt-24 md:pt-32 pb-10 md:pb-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -152,8 +150,7 @@ const Podcast = () => {
           </div>
         </div>
       </section>
-      <BlogFooter />
-    </div>
+    </PageLayout>
   );
 };
 

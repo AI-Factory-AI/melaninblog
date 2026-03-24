@@ -1,13 +1,11 @@
 import { motion } from "framer-motion";
-import BlogNavbar from "@/components/BlogNavbar";
-import BlogFooter from "@/components/BlogFooter";
-import BlogGrid from "@/components/BlogGrid";
+import { PageLayout } from "@/layout";
+import BlogGrid from "@/components/blog/BlogGrid";
 import { blogPosts } from "@/data/blogData";
 
 const Articles = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <BlogNavbar />
+    <PageLayout>
       <section className="pt-32 pb-12 px-6 lg:px-8">
         <div className="container mx-auto">
           <motion.div
@@ -25,8 +23,7 @@ const Articles = () => {
         </div>
       </section>
       <BlogGrid posts={blogPosts} title="All Articles" showViewAll={false} />
-      <BlogFooter />
-    </div>
+    </PageLayout>
   );
 };
 

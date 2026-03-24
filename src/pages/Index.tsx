@@ -1,19 +1,16 @@
-import BlogNavbar from "@/components/BlogNavbar";
-import HeroSection from "@/components/HeroSection";
-import BlogGrid from "@/components/BlogGrid";
-import NewsletterSection from "@/components/NewsletterSection";
-import BlogFooter from "@/components/BlogFooter";
+import { PageLayout } from "@/layout";
+import HeroSection from "@/components/home/HeroSection";
+import BlogGrid from "@/components/blog/BlogGrid";
+import NewsletterSection from "@/components/home/NewsletterSection";
 import { blogPosts } from "@/data/blogData";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <BlogNavbar />
+    <PageLayout>
       <HeroSection />
-      <BlogGrid posts={blogPosts.slice(0, 6)} />
+      <BlogGrid posts={blogPosts} title="Latest Articles" showViewAll={true} />
       <NewsletterSection />
-      <BlogFooter />
-    </div>
+    </PageLayout>
   );
 };
 
