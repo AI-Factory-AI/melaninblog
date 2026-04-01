@@ -98,8 +98,8 @@ Dev server defaults to **[http://localhost:8080](http://localhost:8080)** (`host
 | `npm run test` | Vitest single run |
 | `npm run test:watch` | Vitest watch mode |
 
----
 
+---
 ## Deployment notes
 
 - Output is **static files** after `npm run build`; host on any static host (Netlify, Vercel, S3 + CloudFront, GitHub Pages with correct `base` if not at domain root).
